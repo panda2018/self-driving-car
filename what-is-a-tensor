@@ -1,3 +1,28 @@
 What is tensor?
 This video https://www.youtube.com/watch?v=f5liqUk0ZTw&feature=youtu.be
 explains well.
+
+To process data efficiently, we want to find a compact way to store data.
+Let's see an example, different schools are often different in giving out grades. 
+For example, the average score for school 1 is 75 while the average score for school 2 is 90.
+To assess student performance across schools, we need to adjust scores from school 1 to a higher grade.
+For example, Abby got 80 for her arts class and got 90 for her science class. 
+Abby's arts class: 80 which is a number
+Abby's arts class, science class: (80, 90) which is a group of numbers
+Abby takes classes each year.
+(80, 90) <-- year 1
+(85, 86) <--- year 2
+Suppose we want to record more students' score in her school.
+Suppose we want to record students' achievements in more schools.
+
+When we access a student's score, we need to access this way:
+Which school, Which student, which year, which subject
+
+You can think a tensor as a warehouse. 
+You reach the section marked as "school 1", 
+then the sub section of "Abby", 
+then the sub section of "year 1",
+then the subject "arts".
+
+https://www.safaribooksonline.com/library/view/learning-tensorflow/9781491978504/ch03.html
+says "tensors are also a fancy name for n-dimensional arrays".
