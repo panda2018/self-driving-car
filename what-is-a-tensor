@@ -47,5 +47,57 @@ https://www.safaribooksonline.com/library/view/learning-tensorflow/9781491978504
 says "tensors are also a fancy name for n-dimensional arrays".
 
 
+2. A tensor has a type and a shape
+define a 2*3*4 tensor
 
 
+3. Why write tensorflow code in two phases?
+For parallel processing.
+The two phases:
+phase 1: construction. Or write a plan.
+ingredients, operations
+"Kale, carrots stir fry"
+cut carrots
+chop kale
+olive oil, salt, water, cup
+pot, chopstick
+mince ginger
+angel hair
+
+phase 2: execution. run
+have two sessions (cook stirfry, cook angel hair)
+init - 
+prepare carrots, kale
+place olive oil, carrots in pot, turn on oven top
+add kale
+add a bit salt
+boil water, cook angel hair
+turn of oven top
+cleanup
+Remember the construction phase doesn't have any activitiy. You can put many stuff there. Some of them are not needed.
+
+
+Q: the difference among constant, variable, placeholder
+a variable needs init. 
+"All node values are dropped between graph runs, except variable values which are maintained by the session across graph runs (queues and readers also maintain some state as we will see in Chapter 12). 
+A variable starts its life when its initializer is run, and it ends when the session is closed."
+
+Q: How do you design an interface to talk with MiniFlow?
+
+Q: Why do we need a default session?
+sess = tf.InteractiveSession()
+ init.run()
+ result = f.eval()
+
+ sess.close()
+ 
+Q: for interactive session
+tf.reset_default_graph().
+
+
+
+Q: Choose "VALID" or "SAME" as padding?
+VALID:
+SAME: pad with zeros
+
+Q: normalize data first
