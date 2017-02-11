@@ -1,4 +1,4 @@
-1. What is tensor?
+Q: What is tensor?
 This video https://www.youtube.com/watch?v=f5liqUk0ZTw&feature=youtu.be
 explains well.
 
@@ -46,12 +46,37 @@ then the subject "arts".
 https://www.safaribooksonline.com/library/view/learning-tensorflow/9781491978504/ch03.html
 says "tensors are also a fancy name for n-dimensional arrays".
 
+Q: What is deep neural networks?
+An image (MNIST), 28*28 pixels (single color). Giving different weight for each pixel.
+suppose there s a small circle in the upper half
+Q: What is convolutional neural networks?
+input layer
+convoluational layer
+example from https://www.safaribooksonline.com/library/view/hands-on-machine-learning/9781491962282/ch13.html#cnn_chapter
 
-2. A tensor has a type and a shape
+Consider a CNN composed of 3 convolutional layers, each with 3×3 kernels, a stride of 2 and SAME padding. 
+The lowest layer outputs 100 feature maps, 
+the middle one outputs 200, 
+and the top one outputs 400.
+The input images are RGB images of 200×300 pixels. What is the total number of parameters in the CNN? If we are using 32 bit floats, at least how much RAM will this network require when making a prediction for a single instance? What about when training on a mini-batch of 50 images?
+
+
+Q: A tensor has a type and a shape
 define a 2*3*4 tensor
+https://www.safaribooksonline.com/library/view/numpy-essentials/9781784393670/ch02.html
+x = np.array([[1,2,3],[2,3,4]]) 
+x.shape 
+ (2, 3) 
+the array was a C-style array. This means that the indexing of this array is done like a C array. This is also called row-major indexing in the case of 2D arrays. This means that, when moving through the array, the row index is incremented first, and then the column index is incremented. In the case of a multidimensional C-style array, the last dimension is incremented first, followed by the last but one, and so on.
+summing up the row of a C array is much faster than summing up its column. This is because, in a C array, elements in a row are laid out in successive memory locations. 
+def sum_row(x):
+         '''
+         Given an array `x`, return the sum of its zeroth row.
+         '''
+         return np.sum(x[0, :])
 
-
-3. Why write tensorflow code in two phases?
+Q: Why write tensorflow code in two phases?
+Emphasize graph.
 For parallel processing.
 The two phases:
 phase 1: construction. Or write a plan.
